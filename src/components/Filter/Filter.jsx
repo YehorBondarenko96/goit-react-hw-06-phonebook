@@ -1,6 +1,18 @@
-import css from '../Styles.module.css'
+import css from '../Styles.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { getFilter } from '../../redux/selectors';
+import { setFilter } from '../../redux/filterSlice';
 
-export const Filter = ({filterWithState, updateStateForFilter}) => {
+export const Filter = () => {
+    const filterWithState = useSelector(getFilter);
+    const dispatch = useDispatch();
+
+    const updateStateForFilter = (evt) => {
+        evt.preventDefault();
+        const filterValue = evt.target.value;
+        dispatch(setFilter(filterValue));
+    };
+
         return(
             <>
                 <label className={css.label}>

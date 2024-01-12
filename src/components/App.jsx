@@ -18,25 +18,6 @@ export const App = () => {
   }, [contacts]);
   
 
-  const updateStateForDelete = (evt) => {
-    const idContact = evt.currentTarget.id;
-    const newContactsForState = contacts.filter((contact) => (contact.id !== idContact));
-    setContacts([...newContactsForState])
-  };
-
-  const updateStateForFilter = (evt) => {
-    evt.preventDefault();
-    const filterValue = evt.target.value;
-    setFilter(filterValue);
-  };
-
-  // const workFilters = () => {
-  //     if(filter.length > 0) {
-  //      return contacts.filter((contact) => contact.name.toLowerCase().includes(filter.toLowerCase()))
-  //     } else {
-  //       return contacts
-  //     }
-  // };
 
   return (
     <div
@@ -53,13 +34,8 @@ export const App = () => {
   <ContactForm />
 
   <h2 className={css.contacts}>Contacts</h2>
-  <Filter
-  filterWithState={filter}
-  updateStateForFilter={updateStateForFilter}
-  />
-  <ContactList 
-  updateStateForDelete={updateStateForDelete}
-  />
+  <Filter />
+  <ContactList />
 </div>
     </div>
   )
