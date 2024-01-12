@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const contactsInitialState = [
     {id: 0, name: 'Yehor', number: '+380966576683'},

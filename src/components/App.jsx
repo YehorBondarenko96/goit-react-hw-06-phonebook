@@ -43,13 +43,13 @@ export const App = () => {
     setFilter(filterValue);
   };
 
-  const workFilters = () => {
-      if(filter.length > 0) {
-       return contacts.filter((contact) => contact.name.toLowerCase().includes(filter.toLowerCase()))
-      } else {
-        return contacts
-      }
-  };
+  // const workFilters = () => {
+  //     if(filter.length > 0) {
+  //      return contacts.filter((contact) => contact.name.toLowerCase().includes(filter.toLowerCase()))
+  //     } else {
+  //       return contacts
+  //     }
+  // };
 
   return (
     <div
