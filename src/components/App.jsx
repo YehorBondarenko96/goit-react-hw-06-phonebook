@@ -2,7 +2,6 @@ import { ContactForm } from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
 import css from './Styles.module.css';
-import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
 
 export const App = () => {
@@ -13,18 +12,6 @@ export const App = () => {
   const [contacts, setContacts] = useState(valueContacts);
   const [filter, setFilter] = useState('');
 
-  const updateStateForAdd = (evt) => {
-    evt.preventDefault();
-    const newName = evt.currentTarget.elements.name.value;
-    const newNumb = evt.currentTarget.elements.number.value;
-    const contactsInState = contacts;
-    if(!contactsInState.some(contact => contact.name.toLowerCase() === newName.toLowerCase())){
-      setContacts((prevContacts) => [...prevContacts, {id: nanoid(), name: newName, number: newNumb}])
-    } else{
-      alert(`${newName} is already in contacts.`)
-    }
-    evt.currentTarget.reset();
-  };
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
@@ -63,9 +50,7 @@ export const App = () => {
     >
       <div>
   <h1 className={css.phonebook}>Phonebook</h1>
-  <ContactForm 
-  updateStateForAdd={updateStateForAdd}
-  />
+  <ContactForm />
 
   <h2 className={css.contacts}>Contacts</h2>
   <Filter
