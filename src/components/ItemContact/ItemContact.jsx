@@ -9,7 +9,7 @@ export const ItemContact = ({contact}) => {
         const idContact = evt.currentTarget.id;
 
         dispatch(deleteContact(idContact));
-      };
+        };
 
     return(
         <li key={contact.id} className={css.itemContscts}>
