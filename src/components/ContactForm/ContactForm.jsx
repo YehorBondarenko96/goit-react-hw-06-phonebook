@@ -14,10 +14,10 @@ export const ContactForm = () => {
         
         if(!namesContacts.some(name => name.toLowerCase() === newName.toLowerCase())){
             dispatch(addContact(newName, newNumb));
+            evt.currentTarget.reset();
         } else{
             alert(`${newName} is already in contacts.`)
         }
-        evt.currentTarget.reset();
         };
 
     return (
